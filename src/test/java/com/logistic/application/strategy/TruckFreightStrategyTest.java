@@ -40,18 +40,14 @@ class TruckFreightStrategyTest {
     }
 
     @Test
-    void shouldWeighWeightMoreThanVolume() {
-        BigDecimal highWeight = strategy.calculate(
-                new BigDecimal("10000"),
-                new BigDecimal("0.001"),
+    void shouldApplyWeightSurchargeOf130Percent() {
+        BigDecimal result = strategy.calculate(
+                new BigDecimal("100"),
+                BigDecimal.ZERO,
                 price
         );
-        BigDecimal highVolume = strategy.calculate(
-                new BigDecimal("0.001"),
-                new BigDecimal("10000"),
-                price
-        );
-        assertThat(highWeight).isGreaterThan(highVolume);
+        // weightCost = 100 * 0.0850 * 1.30 = 11.05
+        assertThat(result).isEqualByComparingTo("11.05");
     }
 
     @Test
