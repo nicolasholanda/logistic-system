@@ -35,6 +35,12 @@ public class FreightQuote {
     @Column(name = "total_price", nullable = false, precision = 12, scale = 4)
     private BigDecimal totalPrice;
 
+    @Column(name = "price_per_kg_snapshot", precision = 10, scale = 4)
+    private BigDecimal pricePerKgSnapshot;
+
+    @Column(name = "price_per_cubic_meter_snapshot", precision = 10, scale = 4)
+    private BigDecimal pricePerCubicMeterSnapshot;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

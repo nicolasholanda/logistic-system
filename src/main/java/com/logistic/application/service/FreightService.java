@@ -31,6 +31,8 @@ public class FreightService {
                 .weightKg(weightKg)
                 .volumeCubicMeters(volumeCubicMeters)
                 .totalPrice(totalPrice)
+                .pricePerKgSnapshot(price.getPricePerKg())
+                .pricePerCubicMeterSnapshot(price.getPricePerCubicMeter())
                 .build();
 
         return freightQuoteRepository.save(quote);

@@ -12,6 +12,8 @@ public record FreightCalculationResponse(
         BigDecimal weightKg,
         BigDecimal volumeCubicMeters,
         BigDecimal totalPrice,
+        BigDecimal pricePerKgSnapshot,
+        BigDecimal pricePerCubicMeterSnapshot,
         LocalDateTime createdAt
 ) {
     public static FreightCalculationResponse from(FreightQuote quote) {
@@ -21,6 +23,8 @@ public record FreightCalculationResponse(
                 quote.getWeightKg(),
                 quote.getVolumeCubicMeters(),
                 quote.getTotalPrice(),
+                quote.getPricePerKgSnapshot(),
+                quote.getPricePerCubicMeterSnapshot(),
                 quote.getCreatedAt()
         );
     }
