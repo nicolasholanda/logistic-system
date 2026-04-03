@@ -7,6 +7,8 @@ import com.logistic.domain.model.FreightQuote;
 import com.logistic.domain.model.TransportPrice;
 import com.logistic.domain.repository.FreightQuoteRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,5 +38,13 @@ public class FreightService {
                 .build();
 
         return freightQuoteRepository.save(quote);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<FreightQuote> findHistory(TransportType transportType, Pageable pageable) {
+        if (transportType != null) {
+            return freightQuoteRepository.findByTransportType(transportType, pageable);
+        }
+        return freightQuoteRepository.findAll(pageable);
     }
 }
