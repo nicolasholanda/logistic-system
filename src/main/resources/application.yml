@@ -29,3 +29,8 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     operations-sorter: method
+
+app:
+  security:
+    username: ${SECURITY_USERNAME:admin}
+    password: ${SECURITY_PASSWORD:admin}

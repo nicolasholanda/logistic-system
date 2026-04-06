@@ -5,6 +5,11 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
+app:
+  security:
+    username: admin
+    password: admin
+
 logging:
   level:
     root: WARN
